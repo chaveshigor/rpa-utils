@@ -7,15 +7,15 @@ Para a extração de relatórios é possível utilizar o objeto <b>ReportGenerat
 <code>
 <br>
 from utils.report_generator.app import ReportGenerator
-<br><br>
+<br/><br/>
 generator = ReportGenerator(
-  <br>&emsp; report_path='report.xlsx', 
-  <br>&emsp; columns_analytical=['Etapa', 'Início', 'Fim', 'Boletos Processados'],
-  <br>&emsp; columns_synthetic=['Empresa', 'Estabelecimento/Banco', 'Conta', 'Status', 'Observação'],
-  <br>&emsp; bot_name='Bananas de Pijamas'
-  <br>&emsp; )
+  <br/>&emsp; report_path='report.xlsx', 
+  <br/>&emsp; columns_analytical=['Etapa', 'Início', 'Fim', 'Boletos Processados'],
+  <br/>&emsp; columns_synthetic=['Empresa', 'Estabelecimento/Banco', 'Conta', 'Status', 'Observação'],
+  <br/>&emsp; bot_name='Bananas de Pijamas'
+  <br/>&emsp; )
 </code>
-<br><br>
+
 O exemplo acima ilustra a criação de um documento excel com os seguintes relatórios contendo as seguintes colunas:
 
 ### Relatório analítico 
