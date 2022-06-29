@@ -3,8 +3,8 @@ Essa biblioteca tem o objetivo de facilitar o desenvolvimento de RPA's, fornecen
 
 ## Geração de relatório anaítico e sintético
 Para a extração de relatórios é possível utilizar o objeto <b>ReportGenerator</b>.
-<code>
 <br>
+<code>
 <br>
 from utils.report_generator.app import ReportGenerator
 <br><br>
