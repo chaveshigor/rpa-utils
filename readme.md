@@ -1,36 +1,27 @@
 # RPA-Utils
 Essa biblioteca tem o objetivo de facilitar o desenvolvimento de RPA's, fornecendo soluções já prontas para algumas ações rotineiras em projetos.
 
-## Geração de relatório anaítico e sintético
-Para a extração de relatórios é possível utilizar o objeto <b>ReportGenerator</b>.
-<br>
-<code>
-<br>
+## Geração de relatório analítico e sintético
+Para a geração de relatórios é possível utilizar o objeto <b>ReportGenerator</b>.
+```python
 from utils.report_generator.app import ReportGenerator
-<br/><br/>
+
 generator = ReportGenerator(
-  <br/>&emsp; report_path='report.xlsx', 
-  <br/>&emsp; columns_analytical=['Etapa', 'Início', 'Fim', 'Boletos Processados'],
-  <br/>&emsp; columns_synthetic=['Empresa', 'Estabelecimento/Banco', 'Conta', 'Status', 'Observação'],
-  <br/>&emsp; bot_name='Bananas de Pijamas'
-  <br/>&emsp; )
-</code>
+  report_path='report.xlsx',
+  columns_analytical=['Etapa', 'Início', 'Fim', 'Boletos Processados'],
+  columns_synthetic=['Empresa', 'Estabelecimento/Banco', 'Conta', 'Status', 'Observação'],
+  bot_name='Bananas de Pijamas'
+  )
+```
 
 O exemplo acima ilustra a criação de um documento excel com os seguintes relatórios contendo as seguintes colunas:
+<b>
+- Relatório analítico: Etapa, Início, Fim, Boletos Processados
+- Relatório sintético: Empresa, Estabelecimento/Banco, Conta, Status, Observação
+</b>
 
-### Relatório analítico 
-- Etapa
-- Início
-- Fim
-- Boletos Processados
-### Relatório sintético
-- Empresa
-- Estabelecimento/Banco
-- Conta
-- Status
-- Observação
 
-Após instanciar o object, é necessário que o arquivo excel seja inicializado. Isso pode ser feito da seguinte forma:
+Após instanciar o objeto, é necessário que o arquivo excel seja inicializado. Isso pode ser feito da seguinte forma:
 <code>
 <br>
 generator.initialize_report()
