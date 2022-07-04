@@ -44,9 +44,9 @@ class ReportGenerator:
         self.wb.save(self.report_path)
 
   def write_synthetic(self, columns: object, save_report = True):
+    row = self.__find_next_row(self.synthetic) + 1
     for item in columns:
       column = self.__find_column(item, self.synthetic)
-      row = self.__find_next_row(self.synthetic)
       coordenate = '{}{}'.format(column, row)
       
       self.synthetic[coordenate].value = columns[item]
