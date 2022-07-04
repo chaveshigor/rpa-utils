@@ -29,8 +29,5 @@ generator.initialize_report()
 
 Para preencher os relatórios podem ser utilizados alguns métodos:
 ### write_analytical
-<code>
-generator.write_analytical({ 'Etapa': 'extração de notas', 'Fim': '10-03-22 05:52:09' })
-<br>
-</code>
+`generator.write_analytical({ 'Etapa': 'extração de notas', 'Fim': '10-03-22 05:52:09' })`\
 O código acima irá gerar uma nova linha no relatório com as colunas 'Etapa' e 'Fim' preenchidas com os valores passados como parâmetro
