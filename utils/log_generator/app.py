@@ -1,14 +1,18 @@
+from utils.bot_info.app import BotInfo
+
 from datetime import datetime
 from datetime import date
 import sys, os
 
 class LogGenerator:
 
-  def __init__(self, bot_name, show_logs=False):
+  def __init__(self, show_logs=False):
+    self.bot_info = BotInfo()
+    self.bot_name = self.bot_info.name
+    self.execution_id = self.bot_info.execution_id
     self.show_logs = show_logs
-    self.log_columns = ['date', 'time', 'error_description', 'error_line', 'current_file', 'dev_description', 'context']
-    self.default_path = 'C:/RPA/{}/log.csv'.format(bot_name)
-    self.bot_name = bot_name
+    self.log_columns = ['execution_id', 'date', 'time', 'error_description', 'error_line', 'current_file', 'dev_description', 'context']
+    self.default_path = 'C:/RPA/{}/log.csv'.format(self.bot_name)
 
   def write_log(self, current_file, dev_description, context = ''):
     exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -22,11 +26,12 @@ class LogGenerator:
     self.__create_log_file()
 
     log_file = open(self.default_path, 'a')
-    log_file.write('\n{};{};{};{};{};{};{}'.format(
+    log_file.write('\n{};{};{};{};{};{};{};{}'.format(
+      str(self.execution_id),
       date.today().strftime('%d/%m/%Y'),
-      datetime.now().strftime('%H:%M:%S'),
+      datetime.now().strftime('%H:%M:%S:%f'),
       error_description,
-      str(),
+      str(error_line),
       str(current_file),
       str(dev_description),
       str(context)
@@ -44,9 +49,10 @@ class LogGenerator:
     self.__create_log_file()
 
     log_file = open(self.default_path, 'a')
-    log_file.write('\n{};{};{};{};{};{};{}'.format(
+    log_file.write('\n{};{};{};{};{};{};{};{}'.format(
+      str(self.execution_id),
       date.today().strftime('%d/%m/%Y'),
-      datetime.now().strftime('%H:%M:%S'),
+      datetime.now().strftime('%H:%M:%S:%f'),
       '{} {}'.format(str(exc_type), str(exc_obj)),
       str(exc_tb.tb_lineno),
       str(current_file),
