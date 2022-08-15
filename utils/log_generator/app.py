@@ -63,7 +63,7 @@ class LogGenerator:
     log_file.close()
 
     if self.show_logs:
-      print('>> Error: {} - {} - {}'.format(dev_description))
+      print(f'>> Error: {exc_tb.tb_lineno} - {str(exc_type), str(exc_obj)} - {dev_description}')
 
 
   # Private methods
