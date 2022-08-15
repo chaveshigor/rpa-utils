@@ -14,8 +14,8 @@ class BotInfo:
 
   def __init__(self, bot_info_path = None):
 
-    root_path = '\\'.join(__file__.split('\\')[:-3])
-    self.bot_info_path =  f'{root_path}\\bot_info.json'
+    self.root_path = '\\'.join(__file__.split('\\')[:-3])
+    self.bot_info_path =  f'{self.root_path}\\bot_info.json'
 
     if bot_info_path:
       self.bot_info_path = bot_info_path
